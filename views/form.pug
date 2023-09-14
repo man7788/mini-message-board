@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 New Message
+
+  .form
+    form(method="POST" action="/new")
+      label(for="fname") Your Name:
+      input(type="text" id="fname" name="fname")
+      label(for="fmessage") Message:
+      textarea(type="text" id="fmessage" name="fmessage" rows="4" cols="50")
+      button Submit
