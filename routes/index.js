@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const findDoc = require("../connect");
 
 const messages = [
   {
@@ -13,6 +14,13 @@ const messages = [
     added: new Date(),
   },
 ];
+
+const getDoc = async () => {
+  const data = await findDoc().catch(console.dir);
+  messages.push(data);
+};
+
+getDoc();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
